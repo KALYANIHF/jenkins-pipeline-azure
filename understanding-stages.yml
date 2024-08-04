@@ -19,10 +19,10 @@ stages:
           - bash: echo Build SecondJob
   - stage: DevDeploy
     jobs:
-      - job: DevDeploy JOb 1
+      - job: DevDeploy
         steps:
           - bash: echo Build DevDeploy job1
-      - job: DevDeploy Secondjob
+      - job: DevDeploy2
         steps:
           - bash: echo Build DevDeploy job2
   - stage: QADeploy
@@ -35,6 +35,3 @@ stages:
       - job: ProdDeploy
         steps:
           - bash: echo Build ProdDeploy
-steps:
-  - script: echo Job1, Step1!
-    displayName: "Run a one-line script"
