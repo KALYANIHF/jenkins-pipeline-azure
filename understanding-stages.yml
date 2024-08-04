@@ -38,15 +38,15 @@ stages:
                 **/*.yaml
                 **/*.tf
               TargetFolder: "$(Build.ArtifactStagingDirectory)"
-      - stage: DevDeploy
-        dependsOn: Build
-        jobs:
-          - job: DevDeploy
-            steps:
-              - bash: echo Build DevDeploy job1
-          - job: DevDeploy2
-            steps:
-              - bash: echo Build DevDeploy job2
+  - stage: DevDeploy
+    dependsOn: Build
+    jobs:
+      - job: DevDeploy
+        steps:
+          - bash: echo Build DevDeploy job1
+      - job: DevDeploy2
+        steps:
+          - bash: echo Build DevDeploy job2
 # - stage: QADeploy
 #   dependsOn: DevDeploy
 #   jobs:
