@@ -1,0 +1,27 @@
+
+trigger:
+- main
+
+resources:
+- repo: self
+
+variables:
+  tag: '$(Build.BuildId)'
+
+stages:
+- stage: Build
+  displayName: Build image
+  jobs:
+  - job: Build
+    displayName: Build
+    pool:
+      vmImage: ubuntu-latest
+    steps:
+    
+    - task: Docker@2
+      inputs:
+        containerRegistry: 'souvikdocker22'
+        repository: 'souvikdocker22/currency-exchange-micro'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(tag)'
